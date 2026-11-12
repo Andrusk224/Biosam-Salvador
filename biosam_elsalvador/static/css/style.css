@@ -1,0 +1,34 @@
+/* Custom Styles para BIOSAM S.A.S */
+
+/* Animaciones y Transiciones Suaves */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sombras y elevaciones personalizadas */
+.shadow-custom {
+    box-shadow: 0 10px 30px -5px rgba(8, 80, 65, 0.1);
+}
+
+/* Ajustes de scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #085041;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1D9E75;
+}
+
+/* Modales e imágenes en vista previa */
+.modal-overlay {
+    backdrop-filter: blur(5px);
+}

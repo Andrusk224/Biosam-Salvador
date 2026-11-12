@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Proyectos | BIOSAM S.A.S El Salvador</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="bg-[#085041] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-[#1D9E75] flex items-center justify-center font-bold text-xl text-white shadow-inner overflow-hidden">
+                        <img src="{{ url_for('static', filename='images/logosalvador.jpeg') }}" alt="Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-wider block leading-none">BIOSAM <span class="text-[#1D9E75]">S.A.S</span></span>
+                        <span class="text-xs text-gray-300 block tracking-widest mt-0.5">EL SALVADOR</span>
+                    </div>
+                </a>
+
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium items-center">
+                    <a href="{{ url_for('home') }}" class="hover:text-[#1D9E75] transition-colors py-2">Inicio</a>
+                    <a href="{{ url_for('home') }}#trayectoria" class="hover:text-[#1D9E75] transition-colors py-2">Trayectoria</a>
+                    <a href="{{ url_for('home') }}#soluciones" class="hover:text-[#1D9E75] transition-colors py-2">Soluciones</a>
+                    <a href="{{ url_for('home') }}#ventajas" class="hover:text-[#1D9E75] transition-colors py-2">Ventajas Logísticas</a>
+                    <a href="{{ url_for('galeria') }}" class="text-[#1D9E75] font-bold py-2 border-b-2 border-[#1D9E75]">Galería</a>
+                    <a href="{{ url_for('home') }}#contacto" class="bg-[#1D9E75] hover:bg-[#157859] px-4 py-2.5 rounded-lg text-white font-semibold transition-all shadow hover:shadow-lg">Contacto</a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-200 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#063b30] border-t border-[#0a6653]">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <a href="{{ url_for('home') }}" class="block px-3 py-2 rounded-md hover:bg-[#085041]">Inicio</a>
+                <a href="{{ url_for('galeria') }}" class="block px-3 py-2 rounded-md bg-[#085041] font-bold text-[#1D9E75]">Galería de Proyectos</a>
+                <a href="{{ url_for('home') }}#contacto" class="block px-3 py-2.5 rounded-md bg-[#1D9E75] text-center font-bold">Contacto Directo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CABECERA DE LA GALERÍA -->
+    <header class="bg-gradient-to-r from-[#085041] to-[#0d6e5a] text-white py-16 px-4 text-center">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <span class="bg-[#1D9E75]/30 border border-[#1D9E75] px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-emerald-200">
+                 PORTAFOLIO VISUAL Y TÉCNICO
+            </span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+                Galería de Proyectos y Equipos
+            </h1>
+            <p class="text-gray-200 text-base sm:text-lg max-w-2xl mx-auto font-light">
+                Descubre nuestra capacidad logística, plantas de tratamiento y la versatilidad de instalación de nuestros reactores en campo.
+            </p>
+        </div>
+    </header>
+
+    <!-- CUADRÍCULA DE LA GALERÍA -->
+    <main class="py-16 bg-gray-50 flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. Transporte Logístico -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/camiontransporte1.jpg') }}" alt="Transporte de sistemas" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Logística Eficiente</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Transporte y Distribución</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Diseño apilable que permite trasladar múltiples unidades de forma segura y económica en camiones livianos a cualquier zona del país.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Planta de Tratamiento 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/planta1.jpeg') }}" alt="Planta de Tratamiento" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Infraestructura</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Plantas de Tratamiento Regional</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Respaldo de más de 32 años ejecutando proyectos de saneamiento ambiental a gran escala con altos estándares técnicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Planta de Tratamiento 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/planta2.jpeg') }}" alt="Sistemas Operativos" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Sostenibilidad</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Operación y Saneamiento</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Sistemas ecológicos integrados que aseguran un tratamiento biológico eficiente y protegen los mantos acuíferos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Instalación Terreno 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/tanque1.jpeg') }}" alt="Instalación en Campo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Instalación en Campo</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Montaje Subterráneo</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Proceso de colocación de tuberías y reactores adaptados a las condiciones geológicas del terreno.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Instalación Terreno 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/tanque2.jpeg') }}" alt="Reactores Instalados" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Versatilidad</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Reactores BIOSAM en Fosa</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Estructura compacta instalada bajo nivel de suelo con impacto visual cero y máxima durabilidad.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. Instalación Terreno 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/tanque3.jpeg') }}" alt="Proyecto en Zona Costera o Rural" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Adaptabilidad</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Instalación en Zonas Especiales</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Sistemas diseñados para operar de manera exitosa incluso en terrenos complejos o con mantos freáticos superficiales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. Tanques y Almacenamiento -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/tanque4.jpeg') }}" alt="Tanques y Componentes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Equipamiento</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Suministro de Tanques</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Componentes principales fabricados con materiales de alta resistencia para garantizar décadas de funcionamiento sin fallas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8. Almacenamiento en Bodega -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/tanquestorage.jpeg') }}" alt="Almacenamiento Apilable" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Optimización de Espacio</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Almacenamiento Apilable</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Diseño inteligente que optimiza el espacio en bodega y facilita el control de inventario previo a cada obra.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 9. Entorno y Laguna -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="h-60 bg-gray-100 overflow-hidden relative">
+                        <img src="{{ url_for('static', filename='images/laguna1.jpeg') }}" alt="Entorno Natural" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-[#1D9E75] uppercase tracking-wider mb-1">Medio Ambiente</span>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Armonía con el Entorno</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Tecnología concebida para integrarse con la naturaleza, preservando los recursos hídricos y ecológicos de cada región.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#063b30] text-gray-300 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm space-y-4">
+            <p>&copy; 2026 BIOSAM S.A.S El Salvador. Todos los derechos reservados.</p>
+            <p class="text-xs text-gray-400">Biosistemas Integrados para el Saneamiento Ambiental</p>
+        </div>
+    </footer>
+
+    <!-- Script de Menú Móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOSAM S.A.S El Salvador | Saneamiento Ambiental y Tratamiento de Aguas</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos CSS personalizados de Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="bg-[#085041] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-[#1D9E75] flex items-center justify-center font-bold text-xl text-white shadow-inner">
+                        B
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-wider block leading-none">BIOSAM <span class="text-[#1D9E75]">S.A.S</span></span>
+                        <span class="text-xs text-gray-300 block tracking-widest mt-0.5">EL SALVADOR</span>
+                    </div>
+                </a>
+
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium items-center">
+                    <a href="#inicio" class="hover:text-[#1D9E75] transition-colors py-2">Inicio</a>
+                    <a href="#trayectoria" class="hover:text-[#1D9E75] transition-colors py-2">Trayectoria</a>
+                    <a href="#soluciones" class="hover:text-[#1D9E75] transition-colors py-2">Soluciones</a>
+                    <a href="#ventajas" class="hover:text-[#1D9E75] transition-colors py-2">Ventajas</a>
+                    <a href="#bitcosam" class="hover:text-[#1D9E75] transition-colors py-2">Visión Bitcosam</a>
+                    <a href="{{ url_for('galeria') }}" class="hover:text-[#1D9E75] transition-colors py-2">Galería</a>
+                    <a href="#contacto" class="bg-[#1D9E75] hover:bg-[#157859] px-4 py-2.5 rounded-lg text-white font-semibold transition-all shadow hover:shadow-lg">Contacto</a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-200 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#063b30] border-t border-[#0a6653]">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <a href="#inicio" class="mobile-nav-link block px-3 py-2 rounded-md hover:bg-[#085041]">Inicio</a>
+                <a href="#trayectoria" class="mobile-nav-link block px-3 py-2 rounded-md hover:bg-[#085041]">Trayectoria</a>
+                <a href="#soluciones" class="mobile-nav-link block px-3 py-2 rounded-md hover:bg-[#085041]">Soluciones</a>
+                <a href="#ventajas" class="mobile-nav-link block px-3 py-2 rounded-md hover:bg-[#085041]">Ventajas Logísticas</a>
+                <a href="#bitcosam" class="mobile-nav-link block px-3 py-2 rounded-md hover:bg-[#085041]">Visión Bitcosam</a>
+                <a href="{{ url_for('galeria') }}" class="block px-3 py-2 rounded-md hover:bg-[#085041]">Galería de Proyectos</a>
+                <a href="#contacto" class="mobile-nav-link block px-3 py-2.5 rounded-md bg-[#1D9E75] text-center font-bold">Contacto Directo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="inicio" class="relative bg-gradient-to-r from-[#085041] to-[#0d6e5a] text-white py-20 lg:py-28 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-[#1D9E75]/30 border border-[#1D9E75] px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-emerald-200">
+                    <span>EXPANSIÓN OFICIAL EN EL SALVADOR</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Saneamiento Ambiental de Alto Rendimiento
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-200 font-light max-w-2xl mx-auto lg:mx-0">
+                    Diseño, suministro e instalación de reactores BIOSAM y soluciones descentralizadas de tratamiento de aguas residuales. Soluciones ecológicas que protegen tus mantos acuíferos.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <a href="#contacto" class="bg-[#1D9E75] hover:bg-[#157859] px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Solicitar Cotización Técnica
+                    </a>
+                    <a href="#soluciones" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm px-8 py-4 rounded-xl font-bold text-center transition-all">
+                        Explorar Tecnologías
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative flex justify-center">
+                <div class="bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-2xl shadow-2xl max-w-md w-full">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 bg-white/10 p-4 rounded-xl">
+                            <i class="fa-solid fa-seedling text-3xl text-[#1D9E75]"></i>
+                            <div>
+                                <h3 class="font-bold text-white">Impacto Ambiental Cero</h3>
+                                <p class="text-xs text-gray-300">Tratamiento de efluentes libre de malos olores</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 bg-white/10 p-4 rounded-xl">
+                            <i class="fa-solid fa-[#1D9E75] fa-truck-ramp-box text-3xl text-[#1D9E75]"></i>
+                            <div>
+                                <h3 class="font-bold text-white">Fácil Transporte</h3>
+                                <p class="text-xs text-gray-300">Diseño apilable para fletes eficientes a todo el país</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 bg-white/10 p-4 rounded-xl">
+                            <i class="fa-solid fa-award text-3xl text-[#1D9E75]"></i>
+                            <div>
+                                <h3 class="font-bold text-white">+32 Años de Experiencia</h3>
+                                <p class="text-xs text-gray-300">Respaldo de trayectoria internacional desde Nicaragua</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRAYECTORIA Y RESPALDO -->
+    <section id="trayectoria" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#1D9E75] font-bold tracking-wider text-sm uppercase block mb-2">Respaldo Internacional</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Trayectoria Probada en la Región</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        En <strong>BIOSAM S.A.S</strong> iniciamos operaciones en El Salvador trayendo consigo el respaldo de más de 32 años de experiencia acumulada en ingeniería ambiental y gestión de saneamiento descentralizado en Nicaragua y Latinoamérica.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Nuestra llegada al mercado salvadoreño busca responder de forma efectiva a las necesidades de desarrollos urbanos, zonas residenciales, industrias y comunidades rurales, garantizando el cumplimiento normativo y la conservación del medio ambiente.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-6">
+                        <div>
+                            <span class="block text-3xl font-extrabold text-[#085041]">32+</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Años de Trayectoria</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-[#1D9E75]">100%</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Eficiencia Ecológica</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-8 rounded-2xl border border-gray-200">
+                    <h3 class="font-bold text-xl text-[#085041] mb-4 flex items-center">
+                        <i class="fa-solid fa-circle-check text-[#1D9E75] mr-3"></i> Áreas de Aplicación Especializada
+                    </h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-house text-[#1D9E75] mt-1 mr-3"></i>
+                            <span><strong>Proyectos Unifamiliares:</strong> Kits de Saneamiento para el hogar libre de problemas de mantenimiento.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-city text-[#1D9E75] mt-1 mr-3"></i>
+                            <span><strong>Desarrollo Inmobiliario:</strong> Tratamiento modular para proyectos residenciales y urbanizaciones.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-[#1D9E75] fa-industry text-[#1D9E75] mt-1 mr-3"></i>
+                            <span><strong>Sector Agroindustrial:</strong> Manejo de efluentes complejos y trampas de grasa de alta capacidad.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIONES Y PRODUCTOS -->
+    <section id="soluciones" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-[#085041] sm:text-4xl">Nuestras Soluciones de Saneamiento</h2>
+                <p class="mt-4 text-gray-600">Sistemas integrales "Todo en Uno" diseñados para tratar aguas negras, orina y aguas grises sin necesidad de separación previa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-emerald-50 text-[#1D9E75] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fa-solid fa-[#1D9E75] fa-[#085041] fa-vial-virus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Reactores BIOSAM</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Tratamiento primario y secundario en una sola unidad compacta. Eliminan la carga orgánica eficientemente garantizando un vertido seguro del efluente y reduciendo malos olores.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-emerald-50 text-[#1D9E75] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Kit Saneamiento Familiar</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Solución completa de fácil montaje para viviendas residenciales o rurales. Diseñados para sustituir definitivamente las fosas sépticas tradicionales colapsables.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-emerald-50 text-[#1D9E75] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                        <i class="fa-solid fa-[#1D9E75] fa-filter"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Trampas y Pozos</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Sistemas complementarios de retención de grasa y pozos de absorción optimizados para prolongar la vida útil del sistema de infiltración subterránea.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENTAJAS LOGÍSTICAS -->
+    <section id="ventajas" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-[#1D9E75] font-bold text-sm uppercase tracking-wider">Diseño Inteligente</span>
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Versatilidad e Instalación Eficiente</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nuestros reactores y componentes están construidos con materiales ligeros de alta durabilidad y un diseño apilable. Esto permite optimizar la logística de envío a cualquier municipio de El Salvador.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-emerald-100 text-[#1D9E75] flex items-center justify-center text-xs font-bold">✓</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Adaptabilidad Geológica</h4>
+                                <p class="text-sm text-gray-500">Instalación segura e integral incluso en sitios con manto freático superficial.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-emerald-100 text-[#1D9E75] flex items-center justify-center text-xs font-bold">✓</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Logística de Transporte Reducida</h4>
+                                <p class="text-sm text-gray-500">Piezas apilables que permiten transportar decenas de unidades en un solo camión liviano.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-emerald-100 text-[#1D9E75] flex items-center justify-center text-xs font-bold">✓</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Impacto Visual Cero</h4>
+                                <p class="text-sm text-gray-500">Sistemas instalados bajo tierra que preservan la estética de tu terreno o proyecto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-100 rounded-2xl h-48 flex flex-col items-center justify-center p-4 text-center border border-gray-200">
+                        <i class="fa-solid fa-truck text-4xl text-[#085041] mb-2"></i>
+                        <span class="font-bold text-sm text-gray-700">Flete Optimizado</span>
+                    </div>
+                    <div class="bg-[#085041] text-white rounded-2xl h-48 flex flex-col items-center justify-center p-4 text-center">
+                        <i class="fa-solid fa-layer-group text-4xl text-[#1D9E75] mb-2"></i>
+                        <span class="font-bold text-sm">Diseño Apilable</span>
+                    </div>
+                    <div class="bg-[#1D9E75] text-white rounded-2xl h-48 flex flex-col items-center justify-center p-4 text-center">
+                        <i class="fa-solid fa-mountain text-4xl text-white mb-2"></i>
+                        <span class="font-bold text-sm">Zonas Difíciles</span>
+                    </div>
+                    <div class="bg-gray-100 rounded-2xl h-48 flex flex-col items-center justify-center p-4 text-center border border-gray-200">
+                        <i class="fa-solid fa-droplet text-4xl text-[#085041] mb-2"></i>
+                        <span class="font-bold text-sm text-gray-700">Ahorro Hídrico</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISIÓN BITCOSAM -->
+    <section id="bitcosam" class="py-16 bg-gradient-to-r from-[#085041] to-[#0b382e] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-[#1D9E75] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Innovación Social</span>
+                <h2 class="text-3xl font-bold mt-4 sm:text-4xl">Visión El Salvador & Metas Bitcosam</h2>
+                <p class="mt-4 text-gray-300">Impulsamos la sostenibilidad integrando tecnologías de financiamiento innovadoras para proyectos rurales y de impacto social.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-house-chimney-medical text-3xl text-[#1D9E75] mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Instalación Masiva</h3>
+                    <p class="text-sm text-gray-300">Sistemas unifamiliares adaptados a las necesidades específicas de cada comunidad y hogar.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-hands-holding-child text-3xl text-[#1D9E75] mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Dignificación Social</h3>
+                    <p class="text-sm text-gray-300">Transformación real de los servicios sanitarios básicos para la población rural vulnerables.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-heart-pulse text-3xl text-[#1D9E75] mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Salud Pública</h3>
+                    <p class="text-sm text-gray-300">Tratamiento efectivo de aguas grises y negras para erradicar focos de enfermedades infecciosas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section id="contacto" class="py-16 bg-gray-100 flex-grow">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                <div class="p-8 sm:p-12">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold text-[#085041]">Contáctanos en El Salvador</h2>
+                        <p class="text-gray-600 mt-2">Déjanos tu mensaje y un asesor técnico se pondrá en contacto contigo a la brevedad.</p>
+                    </div>
+
+                    <form action="/enviar" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">Nombre Completo</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" 
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@correo.com" 
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="asunto" class="block text-sm font-semibold text-gray-700 mb-2">Asunto / Tipo de Proyecto</label>
+                            <input type="text" id="asunto" name="asunto" required placeholder="Ej: Cotización Kit Familiar / Proyecto Residencial" 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label for="mensaje" class="block text-sm font-semibold text-gray-700 mb-2">Mensaje o Consulta Técnica</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Detalla tu requerimiento..." 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#1D9E75] focus:border-transparent outline-none transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                            class="w-full bg-[#085041] hover:bg-[#063b30] text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl text-lg">
+                            Enviar Mensaje por Correo
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#063b30] text-gray-300 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm space-y-4">
+            <p>&copy; 2026 BIOSAM S.A.S El Salvador. Todos los derechos reservados.</p>
+            <p class="text-xs text-gray-400">Biosistemas Integrados para el Saneamiento Ambiental</p>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript separado de Flask -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
